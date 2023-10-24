@@ -3,7 +3,6 @@ import styles from "./checkbox.module.css";
 import cn from 'classnames';
 import { ICheckboxProps } from "./checkbox.props";
 
-
 export const Checkbox = forwardRef<HTMLInputElement, ICheckboxProps>(({ name, className, setChecked, checked, active}, ref) => {
 
 	return (

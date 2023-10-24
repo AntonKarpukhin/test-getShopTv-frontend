@@ -1,7 +1,6 @@
 import { Headings, Paragraph } from "../../components";
 import { NavLink } from "react-router-dom";
 
-
 export const NotFound = () => {
 	return (
 		<div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>

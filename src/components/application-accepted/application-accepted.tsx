@@ -4,12 +4,13 @@ import { Paragraph, Headings } from "../index";
 import { IApplicationAcceptedProps } from "./application-accepted.props";
 import { useNavigate } from "react-router-dom";
 
-export const ApplicationAccepted: React.FC<IApplicationAcceptedProps> = () => {
+export const ApplicationAccepted: React.FC<IApplicationAcceptedProps> = ({acceptForm}) => {
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
 		const timerId = setTimeout(() => {
+			acceptForm();
 			navigate('/')
 		}, 5000)
 

@@ -12,11 +12,6 @@
 	cursor: pointer;
 }
 
-/*.buttonActive {*/
-/*	color: var(--white);*/
-/*	background-color: var(--black);*/
-/*}*/
-
 .buttonHovered {
 	color: var(--white);
 	background-color: var(--black);

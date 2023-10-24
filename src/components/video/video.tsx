@@ -4,7 +4,6 @@ import video from '../../videos/van.mp4';
 import { ReactComponent as IconPlay } from '../../images/play.svg'
 import styles from './video.module.css';
 
-
 export const Video: React.FC<IVideoProps> = ({playPause, handleStartVideo}) => {
 
 	const videoRef = useRef <HTMLVideoElement | null>(null);

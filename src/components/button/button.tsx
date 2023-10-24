@@ -3,7 +3,6 @@ import cn from 'classnames';
 import styles from './button.module.css';
 import { IButtonProps } from "./button.props";
 
-
 export const Button: React.FC<IButtonProps> = ({isActive = false, cursor, count, setHovered, changeNumber, className}) => {
 	return (
 		<input

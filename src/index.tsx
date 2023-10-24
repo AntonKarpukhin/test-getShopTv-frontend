@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { NotFound, PromoPage, VideoPage } from "./pages";
-import {ApplicationAccepted, ApplicationForm} from './components'
 
 const router = createBrowserRouter([
 	{
@@ -18,16 +17,6 @@ const router = createBrowserRouter([
 			{
 				path: '/promo',
 				element: <PromoPage/>,
-				children: [
-					{
-						path: '/promo',
-						element: <ApplicationForm/>
-					},
-					{
-						path: '/promo/:accept',
-						element: <ApplicationAccepted/>
-					},
-				]
 			},
 		]
 	},

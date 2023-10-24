@@ -1,4 +1,6 @@
 import { HTMLAttributes } from "react";
 
 
-export interface IApplicationAcceptedProps extends HTMLAttributes<HTMLDivElement> {}
+export interface IApplicationAcceptedProps extends HTMLAttributes<HTMLDivElement> {
+	acceptForm: () => void;
+}

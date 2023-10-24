@@ -1,6 +1,6 @@
 import { Paragraph } from "../paragraph/paragraph";
 import { Button } from "../button/button";
-import { SyntheticEvent, useCallback, useEffect, useState } from "react";
+import React, { SyntheticEvent, useCallback, useEffect, useState } from "react";
 import { Headings } from "../headings/headings";
 import InputMask from 'react-input-mask';
 import styles from './application-form.module.css';
@@ -11,10 +11,10 @@ import { setArrowUp } from "../../helpers/set-arrow-up";
 import { useButtons } from "../../hooks/useButtons";
 import { validateApi } from "../../utils/validate-api";
 import { a } from "../../constants/data";
-import { useNavigate } from "react-router-dom";
-import { useIdleTimer } from 'react-idle-timer'
+import { IApplicationFormProps } from "./application-form.props";
 
-export const ApplicationForm = () => {
+
+export const ApplicationForm:React.FC<IApplicationFormProps> = ({acceptForm}) => {
 
 	const [selected, setSelected] = useState<string>('');
 	const [cursor, setCursor] = useState( 50);
@@ -22,8 +22,7 @@ export const ApplicationForm = () => {
 	const [checked, setChecked] = useState<boolean>(false);
 	const [errorMessage, setErrorMessage] = useState<boolean>(false);
 	const [activeButton, setActiveButton] = useState<boolean>(true);
-	const navigate = useNavigate();
-	const [remaining, setRemaining] = useState<number>();
+
 	const {
 		upPress,
 		downPress,
@@ -42,10 +41,7 @@ export const ApplicationForm = () => {
 		number8,
 		number9} = useButtons();
 
-	const { getRemainingTime } = useIdleTimer({
-		timeout: 10_000,
-		throttle: 500
-	})
+
 
 	useEffect(() => {
 		if (a.length && upPress) setCursor(setArrowUp(cursor)!);
@@ -108,21 +104,7 @@ export const ApplicationForm = () => {
 		else setActiveButton(true)
 	}, [checked, selected])
 
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setRemaining(Math.ceil(getRemainingTime() / 1000))
-		}, 500)
 
-		return () => {
-			clearInterval(interval)
-		}
-	})
-
-	useEffect(() => {
-		if (remaining === 0) {
-			navigate('/')
-		}
-	}, [remaining])
 
 	const submitForm = (e?: SyntheticEvent | KeyboardEvent) => {
 		e?.preventDefault();
@@ -132,7 +114,7 @@ export const ApplicationForm = () => {
 					setChecked(false);
 					setErrorMessage(false);
 					setSelected('');
-					navigate('/promo/:accept');
+					acceptForm();
 				} else {
 					setErrorMessage(true);
 				}
