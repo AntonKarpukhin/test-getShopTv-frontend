@@ -1,11 +1,12 @@
 import React from 'react';
-import './App.css';
+import styles from './app.module.css';
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-		Hello world
-	</div>
+    <main className={styles.app}>
+		<Outlet/>
+	</main>
   );
 }
 

@@ -1,0 +1,29 @@
+.paragraph {
+	margin: 0;
+	padding: 0;
+	font-style: normal;
+	font-size: 16px;
+	font-weight: 500;
+	color: var(--black);
+}
+
+.subtitle {
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.accept {
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--grey);
+}
+
+.qrBlack {}
+
+.qrWhite {
+	color: var(--white);
+}
+
+.error {
+	color: var(--red);
+}

@@ -1,0 +1,19 @@
+.wrapper {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+
+.icon {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	top: 40%;
+	left: 40%;
+	cursor: pointer;
+}
+
+.icon:hover {
+	opacity: 0.5;
+}

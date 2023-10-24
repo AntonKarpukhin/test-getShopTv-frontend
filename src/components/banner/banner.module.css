@@ -1,0 +1,48 @@
+.banner {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	width: 251px;
+	min-height: 357px;
+	padding: 20px 10px 10px 10px;
+	background: var(--background);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 20px;
+	position: absolute;
+	bottom: 144px;
+	right: -2px;
+}
+
+.title {
+	text-align: center;
+	text-transform: uppercase;
+	white-space: pre-line;
+}
+
+.description {
+	color: var(--black);
+	text-align: center;
+	white-space: pre-line;
+	width: 126px;
+}
+
+.button {
+	width: 156px;
+	height: 52px;
+	background-color: var(--black);
+	border: none;
+	color: var(--background);
+	font-size: 16px;
+	font-weight: 500;
+	text-transform: uppercase;
+	transition: 0.5s all;
+	text-decoration: none;
+}
+
+.button:hover {
+	cursor: pointer;
+	opacity: 0.8;
+}
