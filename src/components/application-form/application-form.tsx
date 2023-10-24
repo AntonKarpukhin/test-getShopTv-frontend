@@ -9,7 +9,7 @@ import cn from "classnames";
 import { setArrowDown } from "../../helpers/set-arrow-down";
 import { setArrowUp } from "../../helpers/set-arrow-up";
 import { useButtons } from "../../hooks/useButtons";
-import { validateApi } from "../../utils/validate-api";
+import { checkValidity } from "../../utils/validate-api";
 import { a } from "../../constants/data";
 import { IApplicationFormProps } from "./application-form.props";
 
@@ -40,7 +40,6 @@ export const ApplicationForm:React.FC<IApplicationFormProps> = ({acceptForm}) =>
 		number7,
 		number8,
 		number9} = useButtons();
-
 
 
 	useEffect(() => {
@@ -108,9 +107,9 @@ export const ApplicationForm:React.FC<IApplicationFormProps> = ({acceptForm}) =>
 
 	const submitForm = (e?: SyntheticEvent | KeyboardEvent) => {
 		e?.preventDefault();
-		validateApi.validate(+selected)
+		checkValidity(+selected)
 			.then(res => {
-				if (res.data.valid) {
+				if (res.valid) {
 					setChecked(false);
 					setErrorMessage(false);
 					setSelected('');
@@ -119,6 +118,7 @@ export const ApplicationForm:React.FC<IApplicationFormProps> = ({acceptForm}) =>
 					setErrorMessage(true);
 				}
 			})
+			.catch(err => console.log(err))
 	}
 
 	const changeNumber = (count: number) => {
